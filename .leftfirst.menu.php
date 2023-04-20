@@ -1,7 +1,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Для частных лиц", 
+		"Для private лиц",
 		"services/fiz/", 
 		Array(), 
 		Array(), 
