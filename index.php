@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+/** @var TYPE_NAME $APPLICATION */
 $APPLICATION->SetTitle("Новости банка");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
