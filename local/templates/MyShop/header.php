@@ -11,10 +11,8 @@ $asset -> addCss(SITE_TEMPLATE_PATH . "/styles.css")
 <!DOCTYPE html>
 <html>
 <head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <?php $APPLICATION -> ShowHead()?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?php $APPLICATION->ShowTitle()?></title>
 
