@@ -18,7 +18,8 @@ $asset -> addCss(SITE_TEMPLATE_PATH . "/styles.css")
 
 </head>
 <body>
-    <!-- Хидер -->
+    <?$APPLICATION->ShowPanel();?>
+<!-- Хидер -->
     <header>
         <h1>Моя компания</h1>
         <nav>
