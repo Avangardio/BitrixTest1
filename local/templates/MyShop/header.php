@@ -12,13 +12,14 @@ $asset -> addCss(SITE_TEMPLATE_PATH . "/styles.css")
 <html>
 <head>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <?php $APPLICATION -> ShowHead()?>
 
     <title><?php $APPLICATION->ShowTitle()?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<main>
+<body>
     <!-- Хидер -->
     <header>
         <h1>Моя компания</h1>
