@@ -1,8 +1,8 @@
 <?php
 
 $arTemplate = [
-    "NAME" => "My Test Template",
-    "DESCRIPTION" => "",
-    "SORT" => 100,
-    "TYPE" => '',
+    'NAME' => 'Шаблон главной страницы - Обжорозаврик',
+    'DESCRIPTION' => 'Это шаблон для главной страницы, без боковых колонок',
+    'SORT' => 100,
+    'TYPE' => '',
 ];
