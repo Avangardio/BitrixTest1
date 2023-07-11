@@ -9,12 +9,31 @@ CJSCore::Init(array('ajax'));
     </div>
     <button id="my-button">send ajax request</button>
     <div id="my-result" style="margin:10px 0;padding:.5em;border:1px solid #ececec;"></div>
+
+    <div id="all-tasks"/>
     </div>
 
     <script>
         const input = BX('my-input')
         const button1 = BX('my-button')
         const result = BX('my-result')
+
+        const allTasks= BX('all-tasks');
+
+        BX.ready(async () => {
+            const result = await BX.ajax({
+                url: '/infoblocks/ajax/getTodos.php',
+                method: 'GET',
+                timeout: 10,
+        })
+                .then(
+                    result => result,
+                    error => error
+                )
+            console.log(result)
+
+
+
         BX.bind(button1, 'click', () => {
             BX.ajax({
                 url: '/infoblocks/ajax/createCIBlock.php',

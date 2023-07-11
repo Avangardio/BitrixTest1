@@ -19,13 +19,13 @@ $iblock_id = $iblock->Add(array(
 if ($iblock_id) {
     $result = [
         'isSuccess' => true,
-        'text' => "user was typing: {$_POST['text']}",
+        'text' => "user was typing: {$_POST['name']}",
         'id' => $iblock_id,
     ];
 } else {
     $result = [
         'isSuccess' => true,
-        'text' => "user was typing: {$_POST['text']}",
+        'text' => "user was typing: {$_POST['name']}",
         'error'=> "error is {$iblock->LAST_ERROR}"
     ];
 }
