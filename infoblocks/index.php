@@ -79,6 +79,7 @@ CJSCore::Init(array('ajax'));
                     },
                     onfailure: e => {
                         alert('huinya')
+                        console.log(e)
                     }
                 })
             })
