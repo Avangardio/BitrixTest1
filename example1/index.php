@@ -19,7 +19,7 @@ CJSCore::Init(array('ajax'));
 
         BX.bind(button, 'click', () => {
             BX.ajax({
-                url: '/ajaxhandler.php',
+                url: '/example1/ajaxhandler.php',
                 data: {
                     text: input.value,
                 },
