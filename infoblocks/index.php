@@ -17,7 +17,7 @@ CJSCore::Init(array('ajax'));
         const result = BX('my-result')
         BX.bind(button1, 'click', () => {
             BX.ajax({
-                url: '/infoblocks/createCIBlock.php',
+                url: '/infoblocks/ajax/createCIBlock.php',
                 data: {
                     name: input.value,
                 },
