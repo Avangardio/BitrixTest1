@@ -13,7 +13,7 @@ CJSCore::Init(array('ajax'));
 
     <script>
         const input = BX('my-input')
-        const button1 = BX('1-button')
+        const button1 = BX('my-button')
         const result = BX('my-result')
         BX.bind(button1, 'click', () => {
             BX.ajax({
