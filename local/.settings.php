@@ -26,7 +26,7 @@ return array (
     'log' => array (
         'settings' => array (
             'file' => 'bitrix/modules/error.log',
-            'log_size' => 1000000,
+            'log_size' => 100000,
         ),
     ),
     'exception_handling' =>
