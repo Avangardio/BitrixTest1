@@ -5,6 +5,8 @@ if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Page\Asset;
 
 $asset = Asset::getInstance();
+$asset->addCss(SITE_TEMPLATE_PATH . '/bootstrap/css/bootstrap.css');
+$asset->addJs(SITE_TEMPLATE_PATH . '/bootstrap/js/bootstrap.js');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
