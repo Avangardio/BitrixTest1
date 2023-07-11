@@ -25,7 +25,7 @@ CJSCore::Init(array('ajax'));
                 url: '/infoblocks/ajax/getTodos.php',
                 method: 'GET',
                 timeout: 10,
-        })
+            })
                 .then(
                     result => result,
                     error => error
@@ -33,26 +33,26 @@ CJSCore::Init(array('ajax'));
             console.log(result)
 
 
-
-        BX.bind(button1, 'click', () => {
-            BX.ajax({
-                url: '/infoblocks/ajax/createCIBlock.php',
-                data: {
-                    name: input.value,
-                },
-                method: 'POST',
-                dataType: 'json',
-                timeout: 10,
-                onsuccess: function( res ) {
-                    console.log('res: ', res)
-                    result.innerText = res.id;
-                },
-                onfailure: e => {
-                    console.error( e )
-                    result.interText = e.error;
-                }
+            BX.bind(button1, 'click', () => {
+                BX.ajax({
+                    url: '/infoblocks/ajax/createCIBlock.php',
+                    data: {
+                        name: input.value,
+                    },
+                    method: 'POST',
+                    dataType: 'json',
+                    timeout: 10,
+                    onsuccess: function (res) {
+                        console.log('res: ', res)
+                        result.innerText = res.id;
+                    },
+                    onfailure: e => {
+                        console.error(e)
+                        result.interText = e.error;
+                    }
+                })
             })
-        })
+        }
     </script>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
