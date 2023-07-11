@@ -4,7 +4,7 @@ CModule::IncludeModule("iblock");
     $props = array(
         "PROPERTY_1" => "Значение свойства 1",
         "PROPERTY_2" => "Значение свойства 2",
-        "TASK" => $_POST['taskName'];
+        "TASK" => $_POST['taskName']);
         // добавьте свойства, которые нужны для вашего элемента
     $fields = array(
         "IBLOCK_ID" => 5,
@@ -22,5 +22,4 @@ CModule::IncludeModule("iblock");
             echo ('ok');
         } else {
             echo "Ошибка при добавлении нового элемента: " . $el->LAST_ERROR;
-        };
-);
+        }

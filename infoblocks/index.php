@@ -40,7 +40,7 @@ CJSCore::Init(array('ajax'));
                 },
                 onfailure: e => {
                     console.error(e)
-                    result = res;
+
                 }
             })
             console.log(result)
