@@ -10,6 +10,11 @@ CJSCore::Init(array('ajax'));
     <button id="my-button">send ajax request</button>
     <div id="my-result" style="margin:10px 0;padding:.5em;border:1px solid #ececec;"></div>
 
+    <div id="my-form">
+        <input id="inputAdd">
+    </div>
+    <button id="buttonAdd">Добавить таску</button>
+
     <div id="all-tasks"/>
     </div>
 
@@ -17,6 +22,9 @@ CJSCore::Init(array('ajax'));
         const input = BX('my-input')
         const button1 = BX('my-button')
         const result = BX('my-result')
+
+        const inputAdd = BX('inputAdd')
+        const buttonAdd = BX('buttonAdd')
 
         const allTasks= BX('all-tasks');
 
@@ -57,7 +65,24 @@ CJSCore::Init(array('ajax'));
                     }
                 })
             })
+            BX.bind(buttonAdd, 'click', () => {
+                BX.ajax({
+                    url: '/infoblocks/ajax/addTodo.php',
+                    data: {
+                        taskName: inputAdd.value,
+                    },
+                    method: 'POST',
+                    dataType: 'json',
+                    timeout: 10,
+                    onsuccess: function (res) {
+                        alert('success')
+                    },
+                    onfailure: e => {
+                        alert('huinya')
+                    }
+                })
+            })
         })
     </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
