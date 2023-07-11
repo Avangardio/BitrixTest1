@@ -21,15 +21,20 @@ CJSCore::Init(array('ajax'));
         const allTasks= BX('all-tasks');
 
         BX.ready(async () => {
-            const result = await BX.ajax({
+            let result;
+            BX.ajax({
                 url: '/infoblocks/ajax/getTodos.php',
                 method: 'GET',
                 timeout: 10,
+                onsuccess: function (res) {
+                    console.log('res: ', res)
+                    result = res;
+                },
+                onfailure: e => {
+                    console.error(e)
+                    result = res;
+                }
             })
-                .then(
-                    result => result,
-                    error => error
-                )
             console.log(result)
 
 
