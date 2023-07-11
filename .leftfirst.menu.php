@@ -19,7 +19,7 @@ $aMenuLinks = Array(
 		"services/corp/", 
 		Array(), 
 		Array(), 
-		"" 
+		""
 	),
 	Array(
 		"Финансовым организациям", 
