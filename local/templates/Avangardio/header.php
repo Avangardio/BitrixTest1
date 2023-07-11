@@ -1,38 +1,24 @@
-<?php
-
-if (! defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
-
-use Bitrix\Main\Page\Asset;
-
-$asset = Asset::getInstance();
-$asset->addCss(SITE_TEMPLATE_PATH . '/bootstrap/css/bootstrap.css');
-$asset->addJs(SITE_TEMPLATE_PATH . '/bootstrap/js/bootstrap.js');
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+IncludeTemplateLangFile(__FILE__);
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?$APPLICATION->ShowTitle()?></title>
-    <?$APPLICATION->ShowHead()?>
-    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/css/style.css">
-</head>
-<body>
-<header class="header">
-    <div class="header__logo">
-        <a href="/">
-            <img src="<?=SITE_TEMPLATE_PATH?>/img/logo.svg" alt="Логотип">
-        </a>
+    <html>
+    <head>
+        <?$APPLICATION->ShowHead();?>
+        <title><?$APPLICATION->ShowTitle()?></title>
+    </head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+
+<?$APPLICATION->ShowPanel()?>
+
+<?if($USER->IsAdmin()):?>
+
+    <div style="border:red solid 1px">
+        <form action="/bitrix/admin/site_edit.php" method="GET">
+            <input type="hidden" name="LID" value="<?=SITE_ID?>" />
+            <p><font style="color:red"><?echo GetMessage("DEF_TEMPLATE_NF")?> </font></p>
+            <input type="submit" name="set_template" value="<?echo GetMessage("DEF_TEMPLATE_NF_SET")?>" />
+        </form>
     </div>
-    <nav class="header__menu">
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "top",
-            Array(
-                "ROOT_MENU_TYPE" => "top",
-                "MAX_LEVEL" => "1",
-                "USE_EXT" => "N"
-            )
-        );?>
-    </nav>
-</header>
+
+<?endif?>
