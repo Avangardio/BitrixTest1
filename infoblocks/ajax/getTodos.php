@@ -1,6 +1,12 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php"); // подключаем ядро Битрикса
+
+$response = [
+    'isOk' => false,
+    'tasks' => []
+];
+
 try {
     $arSelect = Array(
         "ID", "IBLOCK_ID", "NAME",
@@ -20,18 +26,17 @@ try {
         Array("nPageSize"=>50),
         $arSelect
     );
-    $results = [];
     while($ob = $res->GetNextElement()){
         $arFields = $ob->GetFields();
         //print_r($arFields);
         $arProps = $ob->GetProperties();
-        array_push($results, $arProps);
+        array_push( $response['tasks'], $arProps);
         //print_r($arProps);
     }
-    header("Content-type: application/json; charset=utf-8");
-    echo json_encode($results);
-} catch (error) {
-    header("Content-type: application/json; charset=utf-8");
-    echo json_encode($results);
+    $response['isOk'] = true;
+} catch (Exception $fuckGG) {
+    $response['isOk'] = false;
+    $response['error'] = $fuckGG;
 }
-
+header("Content-type: application/json; charset=utf-8");
+echo json_encode($response);
