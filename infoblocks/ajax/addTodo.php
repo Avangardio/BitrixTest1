@@ -1,18 +1,26 @@
 <?php
-$el = new CIBlockElement;
-$arLoadProductArray = Array(
-    "IBLOCK_SECTION_ID"	=> 0, // ID раздела
-    "IBLOCK_ID"		=> 5,
-    "NAME"			=> 'Tasks',
-    "ACTIVE"		=> 'Y',
-    "PREVIEW_TEXT"		=> '',
-    "DETAIL_TEXT"		=> '',
-    "CODE"			=> 'code',
-    "TASK" => $_POST['taskName'],
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php");
+CModule::IncludeModule("iblock");
+    $props = array(
+        "PROPERTY_1" => "Значение свойства 1",
+        "PROPERTY_2" => "Значение свойства 2",
+        "TASK" => $_POST['taskName'];
+        // добавьте свойства, которые нужны для вашего элемента
+    $fields = array(
+        "IBLOCK_ID" => 5,
+        "IBLOCK_CODE" => "content",
+        "NAME" => "Название элемента",
+        "ACTIVE" => "Y",
+        "PROPERTY_VALUES" => $props, // массив свойств, созданный на предыдущем шаге
+    );
+        $el = new CIBlockElement;
+        $element_id = $el->Add($fields);
 
-    "IPROPERTY_TEMPLATES"=>Array(
-        "ELEMENT_META_TITLE" 		=> '',
-        "ELEMENT_META_DESCRIPTION" 	=> '',
-        "ELEMENT_META_KEYWORDS" 	=> '',
-    ),
+        if ($element_id) {
+            echo "Новый элемент успешно добавлен с ID " . $element_id;
+            header("Content-type: application/json; charset=utf-8");
+            echo ('ok');
+        } else {
+            echo "Ошибка при добавлении нового элемента: " . $el->LAST_ERROR;
+        };
 );
