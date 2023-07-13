@@ -1,5 +1,23 @@
 <?php
 return array (
+    'exception_handling' => array(
+        'value' => array(
+            'debug' => true,
+            'handled_errors_types' => E_ALL & ~E_STRICT & ~E_WARNING,
+            'exception_errors_types' => E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED,
+            'ignore_silence' => false,
+            'assertion_throws_exception' => true,
+            'assertion_error_type' => E_USER_ERROR,
+            'log' => array(
+                'class_name' => '\\Bitrix\\Main\\Diag\\FileExceptionHandler',
+                array (
+                    'file' => '/var/log/php/exceptions.log',
+                    'log_size' => 1000000,
+                ),
+            ),
+        ),
+        'readonly' => false,
+    ),
     'utf_mode' =>
         array (
             'value' => true,
@@ -29,26 +47,6 @@ return array (
             'log_size' => 100000,
         ),
     ),
-    'exception_handling' =>
-        array (
-            'value' =>
-                array (
-                    'debug' => false,
-                    'handled_errors_types' => 4437,
-                    'exception_errors_types' => 4437,
-                    'ignore_silence' => false,
-                    'assertion_throws_exception' => true,
-                    'assertion_error_type' => 256,
-                    'log' => array (
-                        'settings' =>
-                            array (
-                                'file' => '/var/log/php/exceptions.log',
-                                'log_size' => 1000000,
-                            ),
-                    ),
-                ),
-            'readonly' => false,
-        ),
     'crypto' =>
         array (
             'value' =>
