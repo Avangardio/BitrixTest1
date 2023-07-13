@@ -2,31 +2,24 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php");
 CModule::IncludeModule("iblock");
 
-// создаем массив свойств для нового элемента
-$props = array(
-    "TASK" => $_POST['taskName'],
-    "TASK_DESC" => 'Тестовый запись пон да?'
-);
+// ID инфоблока
+$iblock_id = 6;
 
-// создаем массив с данными для нового элемента
-$fields = array(
-    "IBLOCK_ID" => 6,
-    "IBLOCK_CODE" => "content",
-    "NAME" => "Название элемента",
-    "ACTIVE" => "Y",
-    "PROPERTY_VALUES" => $props
-        // добавьте свойства, которые нужны для вашего элемента
-        // массив свойств, созданный на предыдущем шаге
-);
-
-// добавляем новый элемент в инфоблок
+// создаем новый элемент в инфоблоке
 $el = new CIBlockElement;
-$element_id = $el->Add($fields);
+$arFields = array(
+    "ACTIVE" => "Y",
+    "IBLOCK_ID" => $iblock_id,
+    "NAME" => "Название элемента",
+    "PROPERTY_VALUES" => array(
+        "TASK" => $_POST['taskName'],
+        "TASK_DESC" => "Описание задачи",
+    ),
+);
 
-// проверяем результат и выводим сообщение
-if ($element_id) {
-    echo "Новый элемент успешно добавлен с ID " . $element_id;
+if ($element_id = $el->Add($arFields)) {
+    echo "Новый элемент успешно создан!";
 } else {
-    echo "Ошибка при добавлении нового элемента: " . $el->LAST_ERROR;
+    echo "Ошибка при создании элемента: " . $el->LAST_ERROR;
 }
 ?>
