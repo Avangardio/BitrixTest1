@@ -36,7 +36,12 @@ CJSCore::Init(array('ajax'));
                 timeout: 10,
                 onsuccess: function (res) {
                     console.log('res: ', res)
-                    result = res;
+                    if(!res["isOk"]) return;
+                    for(let task of res['tasks']){
+                        const newDiv = document.createElement('div');
+                        newDiv.innerText = task;
+                        allTasks.appendChild(newDiv);
+                    }
                 },
                 onfailure: e => {
                     console.error(e)
@@ -78,7 +83,6 @@ CJSCore::Init(array('ajax'));
                         alert('success')
                     },
                     onfailure: e => {
-                        alert('huinya')
                         console.log(e)
                     }
                 })
