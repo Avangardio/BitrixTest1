@@ -17,7 +17,7 @@ try {
 //IBLOCK_ID и ID обязательно должны быть указаны
 
     $arFilter = Array(
-        "IBLOCK_ID"=>IntVal(5), "ACTIVE"=>"Y"
+        "IBLOCK_ID"=>IntVal(6), "ACTIVE"=>"Y"
     );
 
     $res = CIBlockElement::GetList(
