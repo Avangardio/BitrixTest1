@@ -38,7 +38,6 @@ try {
 } catch (Exception $fuckGG) {
     $response['isOk'] = false;
     $response['error'] = $fuckGG;
-    echo json_encode($fuckGG);
 }
-#header("Content-type: application/json; charset=utf-8");
-#echo json_encode($response);
+header("Content-type: application/json; charset=utf-8");
+echo json_encode($response);
