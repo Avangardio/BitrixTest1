@@ -40,7 +40,6 @@ CJSCore::Init(array('ajax'));
                     console.log(res['tasks'])
                     for(let task of res['tasks']){
                         const newDiv = document.createElement('div');
-                        newDiv.innerText = task;
                         const eleId = document.createElement('a').innerText = task['ID'];
                         const eleTaskName = document.createElement('a').innerText = task['PROPERTY_TASK_VALUE'];
                         newDiv.append(eleId);
