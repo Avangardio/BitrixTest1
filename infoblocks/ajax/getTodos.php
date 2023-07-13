@@ -31,7 +31,7 @@ try {
         $arFields = $ob->GetFields();
         //print_r($arFields);
         $arProps = $ob->GetProperties();
-        array_push( $response['tasks'], $arProps);
+        array_push( $response['tasks'], $ob);
         //print_r($arProps);
     }
     $response['isOk'] = true;
