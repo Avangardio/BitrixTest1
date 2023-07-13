@@ -35,7 +35,7 @@ CJSCore::Init(array('ajax'));
                 method: 'GET',
                 timeout: 10,
                 onsuccess: function (res) {
-                    console.log('res: ', res)
+                    console.table(res['tasks'])
                     if(!res["isOk"]) return;
                     for(let task of res['tasks']){
                         const newDiv = document.createElement('div');
