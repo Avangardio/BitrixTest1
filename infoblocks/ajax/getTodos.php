@@ -1,6 +1,7 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php"); // подключаем ядро Битрикса
+CModule::IncludeModule("iblock"); // подключаем модуль информационных блоков
 
 $response = [
     'isOk' => false,
