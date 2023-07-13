@@ -43,8 +43,8 @@ CJSCore::Init(array('ajax'));
                         newDiv.innerText = task;
                         const eleId = document.createElement('a').innerText = task['ID'];
                         const eleTaskName = document.createElement('a').innerText = task['PROPERTY_TASK_VALUE'];
-                        newDiv.appendChild(eleId);
-                        newDiv.appendChild(eleTaskName);
+                        newDiv.append(eleId);
+                        newDiv.append(eleTaskName);
                         allTasks.appendChild(newDiv);
                     }
                 },
