@@ -11,6 +11,7 @@ $props = array(
 // создаем массив с данными для нового элемента
 $fields = array(
     "IBLOCK_ID" => 6,
+    "IBLOCK_CODE" => "content",
     "NAME" => "Название элемента",
     "ACTIVE" => "Y",
     "PROPERTY_VALUES" => $props
