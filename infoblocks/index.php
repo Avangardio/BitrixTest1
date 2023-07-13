@@ -35,6 +35,7 @@ CJSCore::Init(array('ajax'));
                 method: 'GET',
                 timeout: 10,
                 onsuccess: function (res) {
+                    console.log(res["isOk"])
                     if(!res["isOk"]) return;
                     console.log(res['tasks'])
                     for(let task of res['tasks']){
