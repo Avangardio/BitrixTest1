@@ -34,8 +34,8 @@ CJSCore::Init(array('ajax'));
                 url: '/infoblocks/ajax/getTodos.php',
                 method: 'GET',
                 timeout: 10,
-                onsuccess: function (res) {
-                    console.log(res["isOk"])
+                onsuccess: function (r) {
+                    const res = JSON.parse(r)
                     if(!res["isOk"]) return;
                     console.log(res['tasks'])
                     for(let task of res['tasks']){
