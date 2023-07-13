@@ -1,34 +1,46 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php"); // подключаем ядро Битрикса
+require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php");
+CModule::IncludeModule("iblock");
 
-CModule::IncludeModule("iblock"); // подключаем модуль информационных блоков
-
-$iblock_type = "content"; // тип инфоблока
-$iblock_name = $_POST["name"]; // название инфоблока
-$iblock_code = "new_iblock"; // символьный код инфоблока
-
-$iblock = new CIBlock;
-$iblock_id = $iblock->Add(array(
+// создаем инфоблок с ID 6 и типом "Контент"
+$ib = new CIBlock;
+$arFields = array(
     "ACTIVE" => "Y",
-    "NAME" => $iblock_name,
-    "CODE" => $iblock_code,
-    "IBLOCK_TYPE_ID" => $iblock_type,
+    "NAME" => "Название инфоблока",
+    "CODE" => "",
+    "IBLOCK_TYPE_ID" => "content",
     "SITE_ID" => array("s1"),
-));
+);
 
-if ($iblock_id) {
-    $result = [
-        'isSuccess' => true,
-        'text' => "user was typing: {$_POST['name']}",
-        'id' => $iblock_id,
-    ];
+$iblock_id = $ib->Add($arFields);
+
+// добавляем свойство "TASK" для элементов инфоблока
+$ibp = new CIBlockProperty;
+$arFields = array(
+    "NAME" => "Задача",
+    "ACTIVE" => "Y",
+    "SORT" => "100",
+    "CODE" => "TASK",
+    "PROPERTY_TYPE" => "S",
+    "IBLOCK_ID" => $iblock_id,
+);
+$PropID1 = $ibp->Add($arFields);
+
+// добавляем свойство "TASK_DESC" для элементов инфоблока
+$arFields = array(
+    "NAME" => "Описание задачи",
+    "ACTIVE" => "Y",
+    "SORT" => "200",
+    "CODE" => "TASK_DESC",
+    "PROPERTY_TYPE" => "S",
+    "IBLOCK_ID" => $iblock_id,
+);
+$PropID2 = $ibp->Add($arFields);
+
+// проверяем результат и выводим сообщение
+if ($iblock_id && $PropID1 && $PropID2) {
+    echo "Инфоблок и свойства успешно созданы!";
 } else {
-    $result = [
-        'isSuccess' => true,
-        'text' => "user was typing: {$_POST['name']}",
-        'error'=> "error is {$iblock->LAST_ERROR}"
-    ];
+    echo "Ошибка при создании инфоблока или свойств: " . $ib->LAST_ERROR . $ibp->LAST_ERROR;
 }
-header("Content-type: application/json; charset=utf-8");
-echo json_encode($result);
 ?>
