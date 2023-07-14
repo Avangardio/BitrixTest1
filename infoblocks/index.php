@@ -2,10 +2,10 @@
 #if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 use Bitrix\Main\Localization\Loc;
-Loc::loadMessages(__FILE__);
+Loc::loadMessages(__FILE__. "../../local/lang.ru/");
 CJSCore::Init(array('ajax'));
 $APPLICATION->SetTitle(Loc::getMessage("TEST_PAGE_TITLE", "ru"));
-echo __FILE__;
+echo __FILE__. "../../local/lang.ru/";
 ?>
 
     <div id="my-form">
