@@ -1,7 +1,6 @@
 <?php
-
+use Bitrix\Main\Localization\Loc;
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-IncludeTemplateLangFile(__FILE__);
 CJSCore::Init(array('ajax'));
 ?>
 
@@ -15,7 +14,7 @@ CJSCore::Init(array('ajax'));
         <input id="inputAdd">
     </div>
 <b><?echo GetMessage("ADD_TASK")?></b>
-    <button id="buttonAdd"><?echo $MESS["ADD_TASK"]?></button>
+    <button id="buttonAdd"><?echo Loc::getMessage("ADD_TASK")?></button>
 
     <div id="all-tasks"/>
     </div>
