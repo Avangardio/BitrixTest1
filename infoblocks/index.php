@@ -1,6 +1,7 @@
 <?php
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+IncludeTemplateLangFile(__FILE__);
 CJSCore::Init(array('ajax'));
 ?>
 
