@@ -13,8 +13,7 @@ CJSCore::Init(array('ajax'));
     <div id="my-form">
         <input id="inputAdd">
     </div>
-<b><? echo LANGUAGE_ID?></b>
-    <button id="buttonAdd"><?echo GetMessage(“CATALOG”, LANGUAGE_ID)?></button>
+    <button id="buttonAdd"><?echo GetMessage("ADD_TASK")?></button>
 
     <div id="all-tasks"/>
     </div>
