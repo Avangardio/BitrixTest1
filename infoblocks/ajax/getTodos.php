@@ -3,36 +3,20 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/bitrix/modules/main/include/prolog_before.php"); // подключаем ядро Битрикса
 CModule::IncludeModule("iblock"); // подключаем модуль информационных блоков
 
+// ID инфоблока
+$iblock_id = 6;
+
 $response = [
     'isOk' => false,
     'tasks' => []
 ];
 
 try {
-    $arSelect = Array(
-        "ID", "IBLOCK_ID", "NAME",
-        "DATE_ACTIVE_FROM", "PROPERTY_*",
-        "TASK"
-    );
-//IBLOCK_ID и ID обязательно должны быть указаны
+    $res = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $iblock_id), false, false, array("ID", "NAME", "PROPERTY_TASK", "PROPERTY_TASK_DESC"));
 
-    $arFilter = Array(
-        "IBLOCK_ID"=>IntVal(5), "ACTIVE"=>"Y"
-    );
-
-    $res = CIBlockElement::GetList(
-        array("ID"=>"ASC"),
-        $arFilter,
-        false,
-        Array("nPageSize"=>50),
-        $arSelect
-    );
-    while($ob = $res->GetNextElement()){
-        $arFields = $ob->GetFields();
-        //print_r($arFields);
-        $arProps = $ob->GetProperties();
-        array_push( $response['tasks'], $ob);
-        //print_r($arProps);
+    while ($arFields = $res->GetNext()) {
+        // выводим значения полей элемента
+        array_push($response['tasks'], $arFields);
     }
     $response['isOk'] = true;
 } catch (Exception $fuckGG) {

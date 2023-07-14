@@ -34,9 +34,18 @@ CJSCore::Init(array('ajax'));
                 url: '/infoblocks/ajax/getTodos.php',
                 method: 'GET',
                 timeout: 10,
-                onsuccess: function (res) {
-                    console.log('res: ', res)
-                    result = res;
+                onsuccess: function (r) {
+                    const res = JSON.parse(r)
+                    if(!res["isOk"]) return;
+                    console.log(res['tasks'])
+                    for(let task of res['tasks']){
+                        const newDiv = document.createElement('div');
+                        const eleId = document.createElement('a').innerText = task['ID'];
+                        const eleTaskName = document.createElement('a').innerText = task['PROPERTY_TASK_VALUE'];
+                        newDiv.append(eleId);
+                        newDiv.append(eleTaskName);
+                        allTasks.appendChild(newDiv);
+                    }
                 },
                 onfailure: e => {
                     console.error(e)
@@ -78,7 +87,6 @@ CJSCore::Init(array('ajax'));
                         alert('success')
                     },
                     onfailure: e => {
-                        alert('huinya')
                         console.log(e)
                     }
                 })
