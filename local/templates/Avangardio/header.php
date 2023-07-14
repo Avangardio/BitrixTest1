@@ -19,6 +19,6 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/bootstrap/js/bootstrap.js');
     </head>
     <body>
         <?$APPLICATION->ShowPanel();?>
-        <header class="w-100 bg-secondary h-25" style="max-height: 100px;">
+        <header class="w-100 bg-secondary h-25 sticky-top" style="max-height: 50px;">
             <div> </div>
         </header>
