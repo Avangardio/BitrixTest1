@@ -1,5 +1,6 @@
 <?php
 use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 CJSCore::Init(array('ajax'));
 ?>
