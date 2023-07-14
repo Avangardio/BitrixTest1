@@ -5,7 +5,7 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 CJSCore::Init(array('ajax'));
 $APPLICATION->SetTitle(Loc::getMessage("TEST_PAGE_TITLE", "ru"));
-
+echo __FILE__;
 ?>
 
     <div id="my-form">
