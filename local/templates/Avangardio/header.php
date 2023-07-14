@@ -20,5 +20,5 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/bootstrap/js/bootstrap.js');
     <body>
         <?$APPLICATION->ShowPanel();?>
         <header class="w-100 bg-secondary h-25 sticky-top" style="max-height: 50px;">
-            <div> </div>
+            <div><? echo getMessage("HEADER")?></div>
         </header>
