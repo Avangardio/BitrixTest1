@@ -14,6 +14,7 @@ echo $_SERVER['DOCUMENT_ROOT'] . "/local/lang/${LANGUAGE_ID}/${$_SERVER['SCRIPT_
     <button id="my-button">send ajax request</button>
     <div id="my-result" style="margin:10px 0;padding:.5em;border:1px solid #ececec;"></div>
 
+<?php echo $LANGUAGE_ID?>
     <div id="my-form">
         <input id="inputAdd">
     </div>
