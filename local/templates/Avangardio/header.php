@@ -20,5 +20,5 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/bootstrap/js/bootstrap.js');
     <body>
         <?$APPLICATION->ShowPanel();?>
         <header>
-            <div class="w-100 blue"> </div>
+            <div class="w-100 bg-secondary h-25" > </div>
         </header>
