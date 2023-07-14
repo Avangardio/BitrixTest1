@@ -1,6 +1,5 @@
 <?php
-use Bitrix\Main\Localization\Loc;
-Loc::loadMessages(__FILE__);
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 CJSCore::Init(array('ajax'));
 ?>
@@ -15,7 +14,7 @@ CJSCore::Init(array('ajax'));
         <input id="inputAdd">
     </div>
 <b><?echo GetMessage("ADD_TASK")?></b>
-    <button id="buttonAdd"><?echo Loc::getMessage("ADD_TASK")?></button>
+    <button id="buttonAdd"><?echo getMessage("ADD_TASK")?></button>
 
     <div id="all-tasks"/>
     </div>
